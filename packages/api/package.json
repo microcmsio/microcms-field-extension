@@ -1,0 +1,21 @@
+{
+  "name": "microcms-iframe-api",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "source": "./src/index.ts",
+  "files": [
+    "dist/**"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf dist/",
+    "build": "tsc",
+    "dev": "tsc"
+  },
+  "devDependencies": {
+    "tsconfig": "*",
+    "config": "*",
+    "typescript": "^4.5.3"
+  }
+}
