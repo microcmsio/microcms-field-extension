@@ -8,13 +8,13 @@ microCMS の iframe フィールドを React から簡単に扱うためのラ�
 import { useMicroCMSIframe } from "microcms-iframe-react";
 
 export default function ColorPicker() {
-  const [color, setColor] = useMicroCMSIframe({ origin: "https://example.microcms.io" });
-  
+  const [color, setColor] = useMicroCMSIframe("", { origin: "https://example.microcms.io" });
+
   const onChangeColor = (e) => {
     setColor({ id: "color", data: e.target.value });
   };
 
-  return <input type="color" value={color || ""} onChange={onChangeColor} />;
+  return <input type="color" value={color} onChange={onChangeColor} />;
 }
 ```
 

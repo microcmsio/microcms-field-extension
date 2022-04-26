@@ -1,14 +1,14 @@
 import { useMicroCMSIframe } from "microcms-iframe-react";
 
 export default function ColorPicker() {
-  const [color, setColor] = useMicroCMSIframe<string>({
+  const [color, setColor] = useMicroCMSIframe<string>("", {
     origin: process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
   });
 
   return (
     <input
       type="color"
-      value={(color as string) || ""}
+      value={String(color)}
       onChange={(e) => {
         setColor({
           id: "color",

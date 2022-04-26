@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import * as iframe from "microcms-iframe-api";
 
-type UseMicroCMSIframe = <T>(option?: iframe.SetupOption) => [unknown, (message: iframe.Message<T>) => void];
+type UseMicroCMSIframe = <T>(
+  initialState: T,
+  option?: iframe.SetupOption
+) => [unknown, (message: iframe.Message<T>) => void];
 
-export const useMicroCMSIframe: UseMicroCMSIframe = <T>(option: iframe.SetupOption = {}) => {
+export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption = {}) => {
   const [id, setId] = useState<string>("");
-  const [data, setData] = useState<unknown>(null);
+  const [data, setData] = useState<unknown>(initialState);
 
   useEffect(() => {
     const detach = iframe.setup({
