@@ -1,3 +1,9 @@
-# [WIP] microcms-iframe-app
+# microcms-iframe-app
 
-TODO
+## Getting Started
+
+```sh
+npm install
+vim src/App.js    # Edit origin
+npm start
+```

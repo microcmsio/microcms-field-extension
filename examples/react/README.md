@@ -1,4 +1,4 @@
-# cra-template-microcms-iframe-app
+# microcms-iframe-app-react
 
 ## Getting Started
 
