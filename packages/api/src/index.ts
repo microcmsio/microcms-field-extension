@@ -162,7 +162,7 @@ export function setup(option: SetupOption = {}): CleanupFunction {
           width: opt.width,
         },
       };
-      window.parent.postMessage(updateStyleMessage, origin);
+      window.parent.postMessage(updateStyleMessage, opt.origin);
 
       opt.onDefaultData(e.data);
     }
