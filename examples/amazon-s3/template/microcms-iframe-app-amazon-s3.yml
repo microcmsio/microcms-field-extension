@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: microcms-iframe-app-amazon-s3
+
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: microcms-iframe-app-amazon-s3-assets
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+  MyUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: microcms-iframe-app-amazon-s3
+      Policies:
+        - PolicyName: s3-read-only
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: s3:ListAllMyBuckets
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - s3:ListBucket
+                Resource: !GetAtt MyBucket.Arn
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectAcl
+                Resource: !Sub
+                  - ${arn}/*
+                  - arn: !GetAtt MyBucket.Arn
+
+Outputs:
+  MyBucketArn:
+    Value: !GetAtt MyBucket.Arn
+  MyBucketDomainName:
+    Value: !GetAtt MyBucket.DomainName
+  MyBucketWebsiteURL:
+    Value: !GetAtt MyBucket.WebsiteURL
+  MyUserArn:
+    Value: !GetAtt MyUser.Arn
