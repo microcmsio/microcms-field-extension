@@ -151,7 +151,7 @@ export function setup(option: SetupOption = {}): CleanupFunction {
   const listener = (e: MessageEvent<unknown>) => {
     if (!e.isTrusted) return;
 
-    if (e.origin !== opt.origin) return;
+    if (e.origin !== opt.origin && opt.origin !== "*") return;
 
     if (isGetDefaultDataMessage(e)) {
       const updateStyleMessage: UpdateStyleMessage = {
