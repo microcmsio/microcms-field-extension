@@ -3,10 +3,10 @@ import * as iframe from "microcms-iframe-api";
 
 type UseMicroCMSIframe = <T>(
   initialState: T,
-  option?: iframe.SetupOption
+  option: iframe.SetupOption
 ) => [unknown, (message: iframe.Message<T>) => void];
 
-export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption = {}) => {
+export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => {
   const [id, setId] = useState<string>("");
   const [data, setData] = useState<unknown>(initialState);
 
@@ -14,8 +14,8 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
     const detach = iframe.setup({
       ...option,
       onDefaultData(data) {
-        setId(data.id);
-        setData(data.message.data);
+        setId(data.data.id);
+        setData(data.data.message.data);
         if (option?.onDefaultData) {
           option.onDefaultData(data);
         }
@@ -27,7 +27,7 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
   const set = useCallback(
     (message: iframe.Message<T>) => {
       setData(message.data);
-      iframe.set({ id, message }, option.origin || "");
+      iframe.set({ id, message }, option.origin);
     },
     [id]
   );
