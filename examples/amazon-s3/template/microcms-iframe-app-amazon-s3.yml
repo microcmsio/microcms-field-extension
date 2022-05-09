@@ -2,11 +2,15 @@ AWSTemplateFormatVersion: "2010-09-09"
 
 Description: microcms-iframe-app-amazon-s3
 
+Parameters:
+  BucketName:
+    Type: String
+
 Resources:
   MyBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: microcms-iframe-app-amazon-s3-assets
+      BucketName: !Ref BucketName
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false

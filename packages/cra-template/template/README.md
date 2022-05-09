@@ -4,6 +4,6 @@
 
 ```sh
 npm install
-vim src/App.js    # Edit origin
+export NEXT_PUBLIC_MICROCMS_ORIGIN='https://example.microcms.io'
 npm start
 ```

@@ -1,14 +1,18 @@
 # microcms-iframe-react
 
-microCMS の iframe フィールドを React から簡単に扱うためのライブラリです。
+This library is for communicating with the microCMS iframe field via `postMessage`.
 
-以下のように使用できます。
+`postMessage` protocol is [here](https://document.microcms.io/manual/iframe-field).
+
+This library is useful when using React.
+
+## Usage
 
 ```jsx
 import { useMicroCMSIframe } from "microcms-iframe-react";
 
 export default function ColorPicker() {
-  const [color, setColor] = useMicroCMSIframe("", { origin: "https://example.microcms.io" });
+  const [color, setColor] = useMicroCMSIframe("#00ff00", { origin: "https://example.microcms.io" });
 
   const onChangeColor = (e) => {
     setColor({ id: "color", data: e.target.value });
@@ -18,4 +22,4 @@ export default function ColorPicker() {
 }
 ```
 
-`useMicroCMSIframe` は `microcms-iframe-api` の README で説明されている `setup` と同等の引数を受け取ることができます。
+`useMicroCMSIframe` can take the same arguments as`setup` described in the README of `microcms-iframe-api`.

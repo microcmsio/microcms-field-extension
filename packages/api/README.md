@@ -1,90 +1,96 @@
 # microcms-iframe-api
 
-microCMS の iframe フィールドと `postMessage` で通信するためのライブラリです。
+This library is for communicating with the microCMS iframe field via `postMessage`.
 
-以下のドキュメントで記載されたプロトコルを実装しています。
+`postMessage` protocol is [here](https://document.microcms.io/manual/iframe-field).
 
-- [外部データ連携（iFrame フィールド）](https://document.microcms.io/manual/iframe-field)
+This library do not depend framework (eg React, Vue.js ...).
 
-以下のように使用できます。
+## Usage
 
 ```js
 import * as iframe from "microcms-iframe-api";
 
 /**
- * iframe フィールドの初期化を行う。
+ * Setup iframe field.
  */
 iframe.setup({
   /**
-   * この iframe はこのオリジンからのみメッセージを受け取ります。
-   * "*" を指定すると全てのオリジンからメッセージを受け取ることができますが、意図しないオリジンからメッセージが注入されるリスクがあるため "*" の指定は推奨しません。
+   * This iframe will only receive messages from this origin.
+   * If you specify "*", you can receive messages from all origins. (Not recommend)
+   * required.
    */
   origin: "https://example.microcms.io",
 
   /**
-   * microCMS 上で表示される iframe フィールドの高さ
+   * Height of iframe field in admin page. 
+   * string or number. optional.
    */
   height: 200,
 
   /**
-   * microCMS 上で表示される iframe フィールドの幅
+   * Width of iframe field in admin page.
+   * string or number. optional.
    */
   width: "100%",
 
   /**
-   * iframe フィールドに保存済みの初期値を取得した際のコールバック
+   * Callback when you get the initial value.
    */
   onDefaultData: (message) => console.log(message),
 
   /**
-   * set の呼び出しが成功した際のコールバック
+   * Callback when you succeed to post value.
    */
   onPostSuccess: (message) => console.log(message),
 
   /**
-   * set の呼び出しが失敗した際のコールバック
+   * Callback when you failed to post value.
    */
   onPostError: (message) => console.log(message),
 });
 
 /**
- * microCMS 本体にデータを送信する。
+ * Send data to microCMS.
  */
 iframe.set(
   {
     id: "item_123456",
 
     /**
-     * 管理画面で表示するテキスト
+     * Text to be displayed on the admin page.
+     * string. optional.
      */
     title: "foo",
 
     /**
-     * 管理画面で表示するテキスト
+     * Text to be displayed on the admin page.
+     * string. optional.
      */
     description: "foo\nbar\n",
 
     /**
-     * 管理画面で表示する画像のURL
+     * Image URL to be displayed on the admin page.
+     * string. optional.
      */
     imageUrl: "http://placehold.jp/150x150.png",
 
     /**
-     * 管理画面で表示する更新日時
+     * Update time to be displayed on the admin page.
+     * string or Date. optional.
      */
     updatedAt: "2022-04-26T00:27:13.176Z",
 
     /**
-     * JSON にシリアライズ可能な任意のオブジェクト。
-     * この値が API で返されます。
+     * Any object that can be serialized to JSON.
+     * This value returned by contents API.
+     * required.
      */
     message: {},
   },
 
   /**
-   * メッセージを送信するオリジン。
-   * このオリジン以外には上記のメッセージは送信されません。
-   * "*" を指定すると全てのオリジンにこのメッセージを送ることができますが、意図しないオリジンにメッセージが漏洩するリスクがあるため "*" の指定は推奨しません。
+   * Origin passed to `iframe.set`.
    */
   "https://example.microcms.io"
 );

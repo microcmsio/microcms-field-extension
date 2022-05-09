@@ -5,6 +5,6 @@
 ```sh
 npx create-react-app my-app --template microcms-iframe-app
 cd my-app
-vim src/App.js    # Edit origin
+export NEXT_PUBLIC_MICROCMS_ORIGIN='https://example.microcms.io'
 npm start
 ```

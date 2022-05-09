@@ -1,14 +1,13 @@
 # microcms-iframe-sdk
 
-microCMS では標準で用意されているテキスト、数値、画像などのフィールド以外にも iframe で埋め込んだページからデータを取得することができます。
+This repository contains libraries for create [iframe field application](https://document.microcms.io/manual/iframe-field).
 
-このリポジトリでは iframe に埋め込まれる側のページを作るためのライブラリやそのサンプルを提供します。
+This repository managed as monorepo by [`turborepo`](https://turborepo.org/docs/getting-started).
 
-## ディレクトリ構成
+## Directory structure
 
-このリポジトリは [`turborepo`](https://turborepo.org/docs/getting-started) を用いたモノリポになっています。
-
-- [`microcms-iframe-api`](./packages/api/): 最も基本的なプロトコルを実装したライブラリです。 React からでも Vue.js からでも Vanilla JS からでも使用できます。
-- [`microcms-iframe-react`](./packages/react/): React hooks を提供するライブラリです。これを使用して低レベルなプロトコルを意識せずに iframe フィールドを開発できます。
-- [`microcms-cra-template`](./packages/cra-template/): iframe フィールドを開発するためのテンプレートです。 `create-react-app` で取得できます。
-- [`examples/color-picker`](./examples/color-picker/): [`microcms-iframe-react`](./packages/react/) を使用した Nest.js の最もシンプルな例です。
+- [`microcms-iframe-api`](./packages/api/): This library do not depend framework (eg React, Vue.js ...)
+- [`microcms-iframe-react`](./packages/react/): This library is useful when using React
+- [`microcms-cra-template`](./packages/cra-template/): This directory is template for [`create-react-app`](https://create-react-app.dev/)
+- [`examples/react`](./examples/react/): React example
+- [`examples/nextjs`](./examples/nextjs/): Next.js example
