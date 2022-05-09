@@ -114,7 +114,7 @@ export type PostDataErrorResponseMessage = {
 } & MessageEvent<unknown>;
 
 export type SetupOption = {
-  origin?: string;
+  origin: string;
   height?: number | string;
   width?: number | string;
   onDefaultData?: (data: GetDefaultDataMessage["data"]) => void;

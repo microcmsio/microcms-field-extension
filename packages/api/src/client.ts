@@ -29,7 +29,7 @@ export const defaultSetupOption = {
   onPostError: (message: PostDataErrorResponseMessage) => console.error(`microCMS iframe on post error`, message),
 };
 
-export function setup(option: SetupOption = {}): CleanupFunction {
+export function setup(option: SetupOption): CleanupFunction {
   const opt = Object.assign({}, defaultSetupOption, option);
 
   const listener = (e: MessageEvent<unknown>) => {
