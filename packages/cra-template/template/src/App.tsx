@@ -1,4 +1,3 @@
-import { SetupOption, Message } from "microcms-iframe-api";
 import { useMicroCMSIframe } from "microcms-iframe-react";
 import { ChangeEvent } from "react";
 
