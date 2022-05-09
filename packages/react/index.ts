@@ -16,6 +16,9 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
       onDefaultData(data) {
         setId(data.id);
         setData(data.message.data);
+        if (option?.onDefaultData) {
+          option.onDefaultData(data);
+        }
       },
     });
     return detach;
