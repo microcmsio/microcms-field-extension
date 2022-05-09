@@ -181,7 +181,7 @@ export function setup(option: SetupOption = {}): CleanupFunction {
   return () => window.removeEventListener("message", listener);
 }
 
-type SetMessage<T> = Omit<PostDataMessage<T>, "action">;
+export type SetMessage<T> = Omit<PostDataMessage<T>, "action">;
 
 export function set<T>(message: SetMessage<T>, origin: string) {
   const msg: PostDataMessage<T> = Object.assign({}, message, { action: "MICROCMS_POST_DATA" as const });
