@@ -29,6 +29,13 @@ export type Message<T> = {
   data: T;
 };
 
+export type User = {
+  /**
+   * ログイン中のユーザーメールアドレス
+   */
+  email: string;
+};
+
 /**
  * microCMS から iFrame に対して onmessage のイベントで渡されるメッセージです。
  */
@@ -43,6 +50,8 @@ export type GetDefaultDataMessage = {
     action: "MICROCMS_GET_DEFAULT_DATA";
 
     message: Partial<Message<unknown>>;
+
+    user: User;
   };
 } & MessageEvent<unknown>;
 
@@ -117,7 +126,7 @@ export type SetupOption = {
   origin: string;
   height?: number | string;
   width?: number | string;
-  onDefaultData?: (data: GetDefaultDataMessage["data"]) => void;
+  onDefaultData?: (message: GetDefaultDataMessage) => void;
   onPostSuccess?: (message: PostDataResponseSuccessMessage) => void;
   onPostError?: (message: PostDataErrorResponseMessage) => void;
 };

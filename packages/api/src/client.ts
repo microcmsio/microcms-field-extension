@@ -24,7 +24,7 @@ export function isPostDataErrorMessage(e: MessageEvent<any>): e is PostDataError
 export const defaultSetupOption = {
   width: "100%",
   height: 400,
-  onDefaultData: (data: GetDefaultDataMessage["data"]) => console.log(`microCMS iframe on default data`, data),
+  onDefaultData: (message: GetDefaultDataMessage) => console.log(`microCMS iframe on default data`, message),
   onPostSuccess: (message: PostDataResponseSuccessMessage) => console.log(`microCMS iframe on post success`, message),
   onPostError: (message: PostDataErrorResponseMessage) => console.error(`microCMS iframe on post error`, message),
 };
@@ -48,7 +48,7 @@ export function setup(option: SetupOption): CleanupFunction {
       };
       window.parent.postMessage(updateStyleMessage, opt.origin);
 
-      opt.onDefaultData(e.data);
+      opt.onDefaultData(e);
     }
 
     if (isPostDataSuccessMessage(e)) {
