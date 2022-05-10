@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 import * as iframe from "microcms-iframe-api";
 
-type UseMicroCMSIframe = <T>(
-  initialState: T,
-  option: iframe.SetupOption
-) => [unknown, (message: iframe.Message<T>) => void];
+type UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => UserMicroCMSIframeResult<T>;
+
+type UserMicroCMSIframeResult<T> = {
+  data: unknown;
+  setMessage: (message: iframe.Message<T>) => void;
+  user: iframe.User;
+};
 
 export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => {
   const [id, setId] = useState<string>("");
+  const [user, setUser] = useState<iframe.User>({ email: "" });
   const [data, setData] = useState<unknown>(initialState);
 
   useEffect(() => {
@@ -16,6 +20,7 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
       onDefaultData(data) {
         setId(data.data.id);
         setData(data.data.message.data);
+        setUser(data.data.user);
         if (option?.onDefaultData) {
           option.onDefaultData(data);
         }
@@ -24,7 +29,7 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
     return detach;
   });
 
-  const set = useCallback(
+  const setMessage = useCallback(
     (message: iframe.Message<T>) => {
       setData(message.data);
       iframe.set({ id, message }, option.origin);
@@ -32,5 +37,5 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
     [id]
   );
 
-  return [data, set];
+  return { data, setMessage, user };
 };
