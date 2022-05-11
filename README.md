@@ -11,3 +11,17 @@ This repository managed as monorepo by [`turborepo`](https://turborepo.org/docs/
 - [`microcms-cra-template`](./packages/cra-template/): This directory is template for [`create-react-app`](https://create-react-app.dev/)
 - [`examples/react`](./examples/react/): React example
 - [`examples/nextjs`](./examples/nextjs/): Next.js example
+
+## Development
+
+Install dependency.
+
+```sh
+npm i
+```
+
+Test and build.
+
+```sh
+npm run format && npm run lint && npm run build
+```
