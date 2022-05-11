@@ -3,7 +3,8 @@ import type { NextPage } from "next";
 import { ChangeEvent } from "react";
 
 // CHANGEME
-const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
+const origin =
+  process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 const Home: NextPage = () => {
   const { data, setMessage } = useMicroCMSIframe("", { origin });

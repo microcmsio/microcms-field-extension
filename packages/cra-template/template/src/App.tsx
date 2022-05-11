@@ -2,7 +2,8 @@ import { useMicroCMSIframe } from "microcms-iframe-react";
 import { ChangeEvent } from "react";
 
 // CHANGEME
-const origin = process.env.REACT_APP_MICROCMS_ORIGIN || "https://example.microcms.io";
+const origin =
+  process.env.REACT_APP_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 export default function App() {
   const { data, setMessage } = useMicroCMSIframe("#00ff00", { origin });

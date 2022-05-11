@@ -2,16 +2,17 @@
 
 ## Getting Started
 
-```sh
-cd template
-export BUCKET_NAME="microcms-iframe-app-amazon-s3-$(whoami)"
-aws cloudformation deploy \
-  --template ./microcms-iframe-app-amazon-s3.yml \
-  --parameter-overrides "BucketName=$BUCKET_NAME" \
-  --stack-name microcms-iframe-app-amazon-s3 \
-  --capabilities CAPABILITY_NAMED_IAM
-cd ../
+Create S3 bucket and upload test images.
 
+```sh
+export BUCKET_NAME="microcms-iframe-app-amazon-s3-$(whoami)"
+./s3.sh
+```
+
+Start server.
+
+```sh
+export BUCKET_NAME="microcms-iframe-app-amazon-s3-$(whoami)"
 export NEXT_PUBLIC_MICROCMS_ORIGIN=https://example.microcms.io
 npm run dev
 ```

@@ -1,18 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 
+import styles from "../styles.module.css";
 import { useMicroCMSIframe } from "microcms-iframe-react";
 import type { GetServerSideProps, NextPage } from "next";
 
-type Object = { url: string };
+type File = { url: string };
 
 type Props = {
-  objects: Object[];
+  objects: File[];
 };
+
+const origin =
+  process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (
   context
 ) => {
-  const objects = await fetch("http://localhost:3000/api/objects").then((res) =>
+  const objects = await fetch("http://localhost:3000/api/files").then((res) =>
     res.json()
   );
 
@@ -26,35 +30,24 @@ export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (
 const Home: NextPage<Props, {}> = (props: Props) => {
   const { data: url, setMessage: setUrl } = useMicroCMSIframe("", {
     height: "600px",
-    origin:
-      process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
+    origin,
   });
 
-  console.log({ url });
-
   return (
-    <div style={{ display: "flex" }}>
-      {props.objects.map((object) => (
-        <div
-          key={object.url}
-          style={
-            object.url === url ? { flex: 1, border: "solid" } : { flex: 1 }
-          }
-        >
+    <div>
+      {props.objects.map((object) => {
+        const active = object.url === url;
+
+        return (
           <img
+            key={object.url}
+            className={active ? styles.activeImage : styles.image}
             src={object.url}
             alt={object.url}
-            width={200}
-            height={200}
-            onClick={() =>
-              setUrl({
-                id: "url",
-                data: object.url,
-              })
-            }
+            onClick={() => setUrl({ data: object.url })}
           />
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

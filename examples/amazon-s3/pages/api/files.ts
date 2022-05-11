@@ -4,7 +4,7 @@ import * as AWS from "aws-sdk";
 
 type Data = { url: string }[];
 
-const bucket = "microcms-iframe-app-amazon-s3-assets";
+const bucket = process.env.BUCKET_NAME || "";
 
 const s3 = new AWS.S3();
 
@@ -20,7 +20,7 @@ export default async function handler(
     contents
       .filter((c) => c.Key)
       .map((c) => ({
-        url: `https://${bucket}.s3.amazonaws.com/${c.Key}`,
+        url: `https://s3.ap-northeast-1.amazonaws.com/${bucket}/${c.Key}`,
       }))
   );
 }
