@@ -18,7 +18,7 @@ git tag -a "$package-v$version" -m "[$package] Version v$version"
 
 read -r -p "Continue? (y/N): " yn
 case "$yn" in
-[yY]*) echo hello ;;
+[yY]*) echo "Continue..." ;;
 *) exit ;;
 esac
 
