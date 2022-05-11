@@ -8,7 +8,10 @@ const bucket = "microcms-iframe-app-amazon-s3-assets";
 
 const s3 = new AWS.S3();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
   const objects = await s3.listObjectsV2({ Bucket: bucket }).promise();
 
   const contents = objects.Contents || [];

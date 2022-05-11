@@ -23,7 +23,7 @@ iframe.setup({
   origin: "https://example.microcms.io",
 
   /**
-   * Height of iframe field in admin page. 
+   * Height of iframe field in admin page.
    * string or number. optional.
    */
   height: 200,

@@ -9,8 +9,12 @@ type Props = {
   objects: Object[];
 };
 
-export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (context) => {
-  const objects = await fetch("http://localhost:3000/api/objects").then((res) => res.json());
+export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (
+  context
+) => {
+  const objects = await fetch("http://localhost:3000/api/objects").then((res) =>
+    res.json()
+  );
 
   return {
     props: {
@@ -22,7 +26,8 @@ export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (cont
 const Home: NextPage<Props, {}> = (props: Props) => {
   const { data: url, setMessage: setUrl } = useMicroCMSIframe("", {
     height: "600px",
-    origin: process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
+    origin:
+      process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
   });
 
   console.log({ url });
@@ -30,7 +35,12 @@ const Home: NextPage<Props, {}> = (props: Props) => {
   return (
     <div style={{ display: "flex" }}>
       {props.objects.map((object) => (
-        <div key={object.url} style={object.url === url ? { flex: 1, border: "solid" } : { flex: 1 }}>
+        <div
+          key={object.url}
+          style={
+            object.url === url ? { flex: 1, border: "solid" } : { flex: 1 }
+          }
+        >
           <img
             src={object.url}
             alt={object.url}

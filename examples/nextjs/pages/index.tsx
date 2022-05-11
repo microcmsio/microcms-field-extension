@@ -3,7 +3,8 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   const { data, setMessage } = useMicroCMSIframe("", {
-    origin: process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
+    origin:
+      process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
   });
 
   return (

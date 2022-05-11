@@ -12,7 +12,9 @@ This library is useful when using React.
 import { useMicroCMSIframe } from "microcms-iframe-react";
 
 export default function ColorPicker() {
-  const [color, setColor] = useMicroCMSIframe("#00ff00", { origin: "https://example.microcms.io" });
+  const [color, setColor] = useMicroCMSIframe("#00ff00", {
+    origin: "https://example.microcms.io",
+  });
 
   const onChangeColor = (e) => {
     setColor({ id: "color", data: e.target.value });
