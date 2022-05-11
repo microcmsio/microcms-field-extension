@@ -1,24 +1,18 @@
 import { useMicroCMSIframe } from "microcms-iframe-react";
 import type { NextPage } from "next";
+import { ChangeEvent } from "react";
+
+// CHANGEME
+const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 const Home: NextPage = () => {
-  const { data, setMessage } = useMicroCMSIframe("", {
-    origin:
-      process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
-  });
+  const { data, setMessage } = useMicroCMSIframe("", { origin });
 
-  return (
-    <input
-      type="color"
-      value={String(data)}
-      onChange={(e) => {
-        setMessage({
-          id: "color",
-          data: e.target.value,
-        });
-      }}
-    />
-  );
+  const onChangeColor = (e: ChangeEvent<HTMLInputElement>) => {
+    setMessage({ data: e.target.value });
+  };
+
+  return <input type="color" value={String(data)} onChange={onChangeColor} />;
 };
 
 export default Home;
