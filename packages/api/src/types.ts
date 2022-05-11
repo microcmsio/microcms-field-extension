@@ -1,7 +1,10 @@
 // https://document.microcms.io/manual/iframe-field
 
 export type Message<T> = {
-  id: string;
+  /**
+   * 管理画面上で表示されるIDです。
+   */
+  id?: string;
 
   /**
    * 管理画面上で表示されるタイトルです。
