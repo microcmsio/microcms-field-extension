@@ -2,16 +2,16 @@ import { useMicroCMSIframe } from "microcms-iframe-react";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
-  const [color, setColor] = useMicroCMSIframe("", {
+  const { data, setMessage } = useMicroCMSIframe("", {
     origin: process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
   });
 
   return (
     <input
       type="color"
-      value={String(color)}
+      value={String(data)}
       onChange={(e) => {
-        setColor({
+        setMessage({
           id: "color",
           data: e.target.value,
         });

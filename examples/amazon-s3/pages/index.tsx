@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (cont
 };
 
 const Home: NextPage<Props, {}> = (props: Props) => {
-  const [url, setUrl] = useMicroCMSIframe("", {
+  const { data: url, setMessage: setUrl } = useMicroCMSIframe("", {
     height: "600px",
     origin: process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io",
   });
