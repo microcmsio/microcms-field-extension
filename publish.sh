@@ -5,10 +5,12 @@ set -xeuo pipefail
 package="${1:?}" # api or react or cra-template
 semver="${2:?}"  # patch or minor or major
 
+cd "$(git rev-parse --show-toplevel)"
+npm run build
+
 cd "$(git rev-parse --show-toplevel)/packages/$package"
 npm version "$semver"
 npm install
-npm run build
 
 version=$(jq -r .version <package.json)
 
