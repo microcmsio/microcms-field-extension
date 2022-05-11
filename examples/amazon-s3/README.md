@@ -6,7 +6,7 @@ Create S3 bucket and upload test images.
 
 ```sh
 export BUCKET_NAME="microcms-iframe-app-amazon-s3-$(whoami)"
-./s3.sh
+./setup.sh
 ```
 
 Start server.

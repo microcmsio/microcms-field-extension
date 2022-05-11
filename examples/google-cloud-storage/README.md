@@ -1,10 +1,18 @@
-# microcms-iframe-app-nextjs
+# microcms-iframe-app-google-cloud-storage
 
 ## Getting Started
 
+Create Google Cluud Storage bucket and upload test images.
+
 ```sh
-npx create-next-app my-app --example https://github.com/microcmsio/microcms-iframe-sdk/tree/main/examples/nextjs
-cd my-app
-export NEXT_PUBLIC_MICROCMS_ORIGIN='https://example.microcms.io'
+export BUCKET_NAME="microcms-iframe-app-amazon-gcs-$(whoami)"
+./setup.sh
+```
+
+Start server.
+
+```sh
+export BUCKET_NAME="microcms-iframe-app-amazon-gcs-$(whoami)"
+export NEXT_PUBLIC_MICROCMS_ORIGIN=https://example.microcms.io
 npm run dev
 ```
