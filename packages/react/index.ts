@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { setupFieldExtension, sendFieldExtensionData, SetupOption, Message, User } from "microcms-field-extension-api";
+import {
+  setupFieldExtension,
+  sendFieldExtensionMessage,
+  SetupOption,
+  Message,
+  User,
+} from "microcms-field-extension-api";
 
 type UseMicroCMSIframe = <T>(initialState: T, option: SetupOption) => UserMicroCMSIframeResult<T>;
 
@@ -32,7 +38,7 @@ export const useFieldExtension: UseMicroCMSIframe = <T>(initialState: T, option:
   const sendMessage = useCallback(
     (message: Message<T>) => {
       setData(message.data);
-      sendFieldExtensionData({ id, message }, option.origin);
+      sendFieldExtensionMessage({ id, message }, option.origin);
     },
     [id]
   );

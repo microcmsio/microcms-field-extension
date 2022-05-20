@@ -65,7 +65,7 @@ export function setupFieldExtension(option: SetupOption): CleanupFunction {
   return () => window.removeEventListener("message", listener);
 }
 
-export function sendFieldExtensionData<T>(message: SendMessage<T>, origin: string) {
+export function sendFieldExtensionMessage<T>(message: SendMessage<T>, origin: string) {
   const msg: PostDataMessage<T> = Object.assign({}, message, {
     action: "MICROCMS_POST_DATA" as const,
   });
