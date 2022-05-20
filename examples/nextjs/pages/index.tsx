@@ -1,4 +1,4 @@
-import { useMicroCMSIframe } from "microcms-field-extension-react";
+import { useFieldExtension } from "microcms-field-extension-react";
 import type { NextPage } from "next";
 import { ChangeEvent } from "react";
 
@@ -6,7 +6,7 @@ import { ChangeEvent } from "react";
 const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 const Home: NextPage = () => {
-  const { data, setMessage } = useMicroCMSIframe("", { origin });
+  const { data, setMessage } = useFieldExtension("", { origin });
 
   const onChangeColor = (e: ChangeEvent<HTMLInputElement>) => {
     setMessage({ data: e.target.value });

@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
-import styles from "../styles.module.css";
-import { useMicroCMSIframe } from "microcms-field-extension-react";
+import { useFieldExtension } from "microcms-field-extension-react";
 import type { GetServerSideProps, NextPage } from "next";
+import styles from "../styles.module.css";
 
 type File = { url: string };
 
@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (cont
 };
 
 const Home: NextPage<Props, {}> = (props: Props) => {
-  const { data: url, setMessage: setUrl } = useMicroCMSIframe("", {
+  const { data: url, setMessage: setUrl } = useFieldExtension("", {
     height: "600px",
     origin,
   });

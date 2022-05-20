@@ -9,12 +9,12 @@ This library do not depend framework (eg React, Vue.js ...).
 ## Usage
 
 ```js
-import * as iframe from "microcms-field-extension-api";
+import { setupFieldExtension, sendFieldExtensionData } from "microcms-field-extension-api";
 
 /**
  * Setup iframe field.
  */
-iframe.setup({
+setupFieldExtension({
   /**
    * This iframe will only receive messages from this origin.
    * If you specify "*", you can receive messages from all origins. (Not recommend)
@@ -53,7 +53,7 @@ iframe.setup({
 /**
  * Send data to microCMS.
  */
-iframe.set(
+sendFieldExtensionData(
   {
     id: "item_123456",
 

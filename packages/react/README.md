@@ -9,19 +9,19 @@ This library is useful when using React.
 ## Usage
 
 ```jsx
-import { useMicroCMSIframe } from "microcms-field-extension-react";
+import { useFieldExtension } from "microcms-field-extension-react";
 
 export default function ColorPicker() {
-  const [color, setColor] = useMicroCMSIframe("#00ff00", {
+  const { data, setMessage } = useFieldExtension("#00ff00", {
     origin: "https://example.microcms.io",
   });
 
   const onChangeColor = (e) => {
-    setColor({ id: "color", data: e.target.value });
+    setMessage({ id: "color", data: e.target.value });
   };
 
-  return <input type="color" value={color} onChange={onChangeColor} />;
+  return <input type="color" value={data} onChange={onChangeColor} />;
 }
 ```
 
-`useMicroCMSIframe` can take the same arguments as`setup` described in the README of `microcms-field-extension-api`.
+`useFieldExtension` can take the same arguments as`setup` described in the README of `microcms-field-extension-api`.

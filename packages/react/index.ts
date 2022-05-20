@@ -1,21 +1,21 @@
 import { useCallback, useEffect, useState } from "react";
-import * as iframe from "microcms-field-extension-api";
+import { setupFieldExtension, sendFieldExtensionData, SetupOption, Message, User } from "microcms-field-extension-api";
 
-type UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => UserMicroCMSIframeResult<T>;
+type UseMicroCMSIframe = <T>(initialState: T, option: SetupOption) => UserMicroCMSIframeResult<T>;
 
 type UserMicroCMSIframeResult<T> = {
   data: unknown;
-  setMessage: (message: iframe.Message<T>) => void;
-  user: iframe.User;
+  setMessage: (message: Message<T>) => void;
+  user: User;
 };
 
-export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => {
+export const useFieldExtension: UseMicroCMSIframe = <T>(initialState: T, option: SetupOption) => {
   const [id, setId] = useState<string>("");
-  const [user, setUser] = useState<iframe.User>({ email: "" });
+  const [user, setUser] = useState<User>({ email: "" });
   const [data, setData] = useState<unknown>(initialState);
 
   useEffect(() => {
-    const detach = iframe.setup({
+    const detach = setupFieldExtension({
       ...option,
       onDefaultData(data) {
         setId(data.data.id);
@@ -30,9 +30,9 @@ export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option:
   });
 
   const setMessage = useCallback(
-    (message: iframe.Message<T>) => {
+    (message: Message<T>) => {
       setData(message.data);
-      iframe.set({ id, message }, option.origin);
+      sendFieldExtensionData({ id, message }, option.origin);
     },
     [id]
   );
