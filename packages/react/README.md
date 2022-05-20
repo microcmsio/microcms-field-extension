@@ -2,7 +2,7 @@
 
 This library is for communicating with the microCMS iframe field via `postMessage`.
 
-`postMessage` protocol is [here](https://document.microcms.io/manual/iframe-field).
+`postMessage` protocol is [here](https://document.microcms.io/manual/field-extension).
 
 This library is useful when using React.
 

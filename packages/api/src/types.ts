@@ -1,4 +1,4 @@
-// https://document.microcms.io/manual/iframe-field
+// https://document.microcms.io/manual/field-extension
 
 export type Message<T> = {
   /**

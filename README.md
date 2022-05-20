@@ -1,6 +1,6 @@
 # microcms-field-extension-sdk
 
-This repository contains libraries for create [iframe field application](https://document.microcms.io/manual/iframe-field).
+This repository contains libraries for create [iframe field application](https://document.microcms.io/manual/field-extension).
 
 This repository managed as monorepo by [`turborepo`](https://turborepo.org/docs/getting-started).
 
