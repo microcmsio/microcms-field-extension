@@ -12,12 +12,12 @@ This library is useful when using React.
 import { useFieldExtension } from "microcms-field-extension-react";
 
 export default function ColorPicker() {
-  const { data, setMessage } = useFieldExtension("#00ff00", {
+  const { data, sendMessage } = useFieldExtension("#00ff00", {
     origin: "https://example.microcms.io",
   });
 
   const onChangeColor = (e) => {
-    setMessage({ id: "color", data: e.target.value });
+    sendMessage({ id: "color", data: e.target.value });
   };
 
   return <input type="color" value={data} onChange={onChangeColor} />;

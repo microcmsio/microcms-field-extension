@@ -6,10 +6,10 @@ import { ChangeEvent } from "react";
 const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 const Home: NextPage = () => {
-  const { data, setMessage } = useFieldExtension("", { origin });
+  const { data, sendMessage } = useFieldExtension("", { origin });
 
   const onChangeColor = (e: ChangeEvent<HTMLInputElement>) => {
-    setMessage({ data: e.target.value });
+    sendMessage({ data: e.target.value });
   };
 
   return <input type="color" value={String(data)} onChange={onChangeColor} />;

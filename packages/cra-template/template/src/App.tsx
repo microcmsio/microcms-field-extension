@@ -5,10 +5,10 @@ import { ChangeEvent } from "react";
 const origin = process.env.REACT_APP_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 export default function App() {
-  const { data, setMessage } = useFieldExtension("#00ff00", { origin });
+  const { data, sendMessage } = useFieldExtension("#00ff00", { origin });
 
   const onChangeColor = (e: ChangeEvent<HTMLInputElement>) => {
-    setMessage({ data: e.target.value });
+    sendMessage({ data: e.target.value });
   };
 
   return <input type="color" value={data as string} onChange={onChangeColor} />;

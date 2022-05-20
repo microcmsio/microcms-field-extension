@@ -136,4 +136,4 @@ export type SetupOption = {
 
 export type CleanupFunction = () => void;
 
-export type SetMessage<T> = Omit<PostDataMessage<T>, "action">;
+export type SendMessage<T> = Omit<PostDataMessage<T>, "action">;

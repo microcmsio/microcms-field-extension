@@ -4,7 +4,7 @@ import {
   PostDataErrorResponseMessage,
   PostDataMessage,
   PostDataResponseSuccessMessage,
-  SetMessage,
+  SendMessage,
   SetupOption,
   UpdateStyleMessage,
 } from "./types";
@@ -65,7 +65,7 @@ export function setupFieldExtension(option: SetupOption): CleanupFunction {
   return () => window.removeEventListener("message", listener);
 }
 
-export function sendFieldExtensionData<T>(message: SetMessage<T>, origin: string) {
+export function sendFieldExtensionData<T>(message: SendMessage<T>, origin: string) {
   const msg: PostDataMessage<T> = Object.assign({}, message, {
     action: "MICROCMS_POST_DATA" as const,
   });

@@ -5,7 +5,7 @@ type UseMicroCMSIframe = <T>(initialState: T, option: SetupOption) => UserMicroC
 
 type UserMicroCMSIframeResult<T> = {
   data: unknown;
-  setMessage: (message: Message<T>) => void;
+  sendMessage: (message: Message<T>) => void;
   user: User;
 };
 
@@ -29,7 +29,7 @@ export const useFieldExtension: UseMicroCMSIframe = <T>(initialState: T, option:
     return detach;
   });
 
-  const setMessage = useCallback(
+  const sendMessage = useCallback(
     (message: Message<T>) => {
       setData(message.data);
       sendFieldExtensionData({ id, message }, option.origin);
@@ -37,5 +37,5 @@ export const useFieldExtension: UseMicroCMSIframe = <T>(initialState: T, option:
     [id]
   );
 
-  return { data, setMessage, user };
+  return { data, sendMessage, user };
 };

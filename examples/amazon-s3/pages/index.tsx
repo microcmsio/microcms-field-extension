@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (cont
 };
 
 const Home: NextPage<Props, {}> = (props: Props) => {
-  const { data: url, setMessage: setUrl } = useFieldExtension("", {
+  const { data: url, sendMessage: setUrl } = useFieldExtension("", {
     height: "600px",
     origin,
   });
