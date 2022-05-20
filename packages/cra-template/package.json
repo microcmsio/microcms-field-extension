@@ -1,5 +1,5 @@
 {
-  "name": "cra-template-microcms-iframe-app",
+  "name": "cra-template-microcms-field-extension-app",
   "version": "0.0.7",
   "keywords": [
     "react",
@@ -9,7 +9,7 @@
   "description": "The base template for microCMS iframe application.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microcmsio/microcms-iframe-sdk.git",
+    "url": "https://github.com/microcmsio/microcms-field-extension-sdk.git",
     "directory": "packages/cra-template"
   },
   "license": "MIT",
@@ -17,7 +17,7 @@
     "node": ">=14"
   },
   "bugs": {
-    "url": "https://github.com/microcmsio/microcms-iframe-sdk/issues"
+    "url": "https://github.com/microcmsio/microcms-field-extension-sdk/issues"
   },
   "files": [
     "template",

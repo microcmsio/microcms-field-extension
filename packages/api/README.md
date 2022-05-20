@@ -1,4 +1,4 @@
-# microcms-iframe-api
+# microcms-field-extension-api
 
 This library is for communicating with the microCMS iframe field via `postMessage`.
 
@@ -9,7 +9,7 @@ This library do not depend framework (eg React, Vue.js ...).
 ## Usage
 
 ```js
-import * as iframe from "microcms-iframe-api";
+import * as iframe from "microcms-field-extension-api";
 
 /**
  * Setup iframe field.

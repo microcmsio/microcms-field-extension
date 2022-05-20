@@ -1,5 +1,5 @@
 {
-  "name": "microcms-iframe-sdk",
+  "name": "microcms-field-extension-sdk",
   "version": "0.0.0",
   "private": true,
   "workspaces": [

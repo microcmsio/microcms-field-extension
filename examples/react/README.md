@@ -1,4 +1,4 @@
-# microcms-iframe-app
+# microcms-field-extension-app
 
 ## Getting Started
 

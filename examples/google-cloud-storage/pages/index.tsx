@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import styles from "../styles.module.css";
-import { useMicroCMSIframe } from "microcms-iframe-react";
+import { useMicroCMSIframe } from "microcms-field-extension-react";
 import type { GetServerSideProps, NextPage } from "next";
 
 // CHANGEME

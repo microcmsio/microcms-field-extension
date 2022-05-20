@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: microcms-iframe-app-amazon-s3
+Description: microcms-field-extension-app-amazon-s3
 
 Parameters:
   BucketName:
@@ -19,7 +19,7 @@ Resources:
   MyUser:
     Type: AWS::IAM::User
     Properties:
-      UserName: microcms-iframe-app-amazon-s3
+      UserName: microcms-field-extension-app-amazon-s3
       Policies:
         - PolicyName: s3-read-only
           PolicyDocument:

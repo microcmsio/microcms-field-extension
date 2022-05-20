@@ -1,4 +1,4 @@
-# microcms-iframe-react
+# microcms-field-extension-react
 
 This library is for communicating with the microCMS iframe field via `postMessage`.
 
@@ -9,7 +9,7 @@ This library is useful when using React.
 ## Usage
 
 ```jsx
-import { useMicroCMSIframe } from "microcms-iframe-react";
+import { useMicroCMSIframe } from "microcms-field-extension-react";
 
 export default function ColorPicker() {
   const [color, setColor] = useMicroCMSIframe("#00ff00", {
@@ -24,4 +24,4 @@ export default function ColorPicker() {
 }
 ```
 
-`useMicroCMSIframe` can take the same arguments as`setup` described in the README of `microcms-iframe-api`.
+`useMicroCMSIframe` can take the same arguments as`setup` described in the README of `microcms-field-extension-api`.

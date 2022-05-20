@@ -1,5 +1,5 @@
 {
-  "name": "microcms-iframe-react",
+  "name": "microcms-field-extension-react",
   "version": "0.0.6",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,7 +16,7 @@
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.2",
     "config": "*",
-    "microcms-iframe-api": "*",
+    "microcms-field-extension-api": "*",
     "tsconfig": "*",
     "tsup": "^5.12.6",
     "typescript": "^4.5.3"

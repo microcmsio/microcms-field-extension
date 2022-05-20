@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import styles from "../styles.module.css";
-import { useMicroCMSIframe } from "microcms-iframe-react";
+import { useMicroCMSIframe } from "microcms-field-extension-react";
 import type { GetServerSideProps, NextPage } from "next";
 
 type File = { url: string };
@@ -10,15 +10,10 @@ type Props = {
   objects: File[];
 };
 
-const origin =
-  process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
+const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
-export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (
-  context
-) => {
-  const objects = await fetch("http://localhost:3000/api/files").then((res) =>
-    res.json()
-  );
+export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (context) => {
+  const objects = await fetch("http://localhost:3000/api/files").then((res) => res.json());
 
   return {
     props: {

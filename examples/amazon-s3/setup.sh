@@ -4,9 +4,9 @@ set -xeuo pipefail
 
 cd template
 aws cloudformation deploy \
-  --template ./microcms-iframe-app-amazon-s3.yml \
+  --template ./microcms-field-extension-app-amazon-s3.yml \
   --parameter-overrides "BucketName=$BUCKET_NAME" \
-  --stack-name microcms-iframe-app-amazon-s3 \
+  --stack-name microcms-field-extension-app-amazon-s3 \
   --capabilities CAPABILITY_NAMED_IAM
 cd ../
 

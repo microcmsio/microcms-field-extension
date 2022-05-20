@@ -4,8 +4,8 @@
       "@testing-library/jest-dom": "^5.14.1",
       "@testing-library/react": "^13.0.0",
       "@testing-library/user-event": "^13.2.1",
-      "microcms-iframe-api": "*",
-      "microcms-iframe-react": "*"
+      "microcms-field-extension-api": "*",
+      "microcms-field-extension-react": "*"
     },
     "devDependency": {
       "@types/react": "18.0.8",

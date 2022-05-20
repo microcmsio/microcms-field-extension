@@ -1,10 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import * as iframe from "microcms-iframe-api";
+import * as iframe from "microcms-field-extension-api";
 
-type UseMicroCMSIframe = <T>(
-  initialState: T,
-  option: iframe.SetupOption
-) => UserMicroCMSIframeResult<T>;
+type UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => UserMicroCMSIframeResult<T>;
 
 type UserMicroCMSIframeResult<T> = {
   data: unknown;
@@ -12,10 +9,7 @@ type UserMicroCMSIframeResult<T> = {
   user: iframe.User;
 };
 
-export const useMicroCMSIframe: UseMicroCMSIframe = <T>(
-  initialState: T,
-  option: iframe.SetupOption
-) => {
+export const useMicroCMSIframe: UseMicroCMSIframe = <T>(initialState: T, option: iframe.SetupOption) => {
   const [id, setId] = useState<string>("");
   const [user, setUser] = useState<iframe.User>({ email: "" });
   const [data, setData] = useState<unknown>(initialState);
