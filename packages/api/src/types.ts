@@ -24,7 +24,7 @@ export type Message<T> = {
   /**
    * 管理画面上で表示される更新日時です。
    */
-  updatedAt?: string;
+  updatedAt?: string | Date;
 
   /**
    * コンテンツ API のレスポンスとして使われる値です。
