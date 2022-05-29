@@ -52,7 +52,7 @@ export type GetDefaultDataMessage = {
 
     action: "MICROCMS_GET_DEFAULT_DATA";
 
-    message?: Partial<Message<unknown>>;
+    message?: Partial<Message<any>>;
 
     user: User;
   };

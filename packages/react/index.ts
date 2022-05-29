@@ -11,7 +11,7 @@ import {
 type UseFieldExtension = <T>(initialState: T, option: SetupOption) => UseFieldExtensionReturnValue<T>;
 
 type UseFieldExtensionReturnValue<T> = {
-  data: unknown;
+  data: T;
   sendMessage: (message: Message<T>) => void;
   user: User;
 };
@@ -19,7 +19,7 @@ type UseFieldExtensionReturnValue<T> = {
 export const useFieldExtension: UseFieldExtension = <T>(initialState: T, option: SetupOption) => {
   const [id, setId] = useState<string>("");
   const [user, setUser] = useState<User>({ email: "" });
-  const [data, setData] = useState<unknown>(initialState);
+  const [data, setData] = useState<T>(initialState);
 
   useEffect(() => {
     const detach = setupFieldExtension({
