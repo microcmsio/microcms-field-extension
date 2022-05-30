@@ -6,6 +6,12 @@ This library is for communicating with the microCMS iframe field via `postMessag
 
 This library do not depend framework (eg React, Vue.js ...).
 
+## Install
+
+```sh
+npm install microcms-field-extension-api
+```
+
 ## Usage
 
 ```js
