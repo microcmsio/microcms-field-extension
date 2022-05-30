@@ -6,10 +6,10 @@ This library is for communicating with the microCMS iframe field via `postMessag
 
 This library is useful when using React.
 
-## install
+## Install
 
 ```sh
-  npm install microcms-field-extension-api microcms-field-extension-react
+npm install microcms-field-extension-api microcms-field-extension-react
 ```
 
 ## Usage
