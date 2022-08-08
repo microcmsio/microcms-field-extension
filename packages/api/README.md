@@ -63,36 +63,38 @@ sendFieldExtensionMessage(
   {
     id: "item_123456",
 
-    /**
-     * Text to be displayed on the admin page.
-     * string. optional.
-     */
-    title: "foo",
+    message: {
+      /**
+       * Text to be displayed on the admin page.
+       * string. optional.
+       */
+      title: "foo",
 
-    /**
-     * Text to be displayed on the admin page.
-     * string. optional.
-     */
-    description: "foo\nbar\n",
+      /**
+       * Text to be displayed on the admin page.
+       * string. optional.
+       */
+      description: "foo\nbar\n",
 
-    /**
-     * Image URL to be displayed on the admin page.
-     * string. optional.
-     */
-    imageUrl: "http://placehold.jp/150x150.png",
+      /**
+       * Image URL to be displayed on the admin page.
+       * string. optional.
+       */
+      imageUrl: "http://placehold.jp/150x150.png",
 
-    /**
-     * Update time to be displayed on the admin page.
-     * string or Date. optional.
-     */
-    updatedAt: "2022-04-26T00:27:13.176Z",
+      /**
+       * Update time to be displayed on the admin page.
+       * string or Date. optional.
+       */
+      updatedAt: "2022-04-26T00:27:13.176Z",
 
-    /**
-     * Any object that can be serialized to JSON.
-     * This value returned by contents API.
-     * required.
-     */
-    message: {},
+      /**
+       * Any object that can be serialized to JSON.
+       * This value returned by contents API.
+       * required.
+       */
+      data: {},
+    },
   },
 
   /**
