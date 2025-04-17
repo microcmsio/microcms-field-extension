@@ -1,0 +1,16 @@
+.button {
+  color: var(--color-text-white);
+  background-color: var(--color-accent-purple);
+  padding: var(--spacing-x-small) var(--spacing-small);
+  border: none;
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: var(--border-radius-base);
+  height: 40px;
+}
+
+.button:hover {
+  opacity:0.85;
+}
