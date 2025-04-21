@@ -12,9 +12,11 @@ type Address = {
   town: string;
 };
 
+const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://xxxx.microcms.io";
+
 export default function AddressFromZipcode() {
   const { data, sendMessage } = useFieldExtension<Address>("" as any, {
-    origin: "*",
+    origin: origin,
     height: 370,
   });
 
