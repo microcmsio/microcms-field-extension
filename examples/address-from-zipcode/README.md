@@ -1,5 +1,6 @@
 # address-from-zipcode
 ![デモ画面](docs/img_demo.gif)
+
 microCMSの[拡張フィールド](https://document.microcms.io/manual/field-extension)として使える、**郵便番号入力で住所を自動補完する拡張フィールド**です。
 
 ## 特徴
@@ -27,7 +28,7 @@ npm run dev
 <img src="./docs/img_settings_microcms_field_extension.png" width="500" height="auto" alt="拡張フィールド設定画面" />
 
 ## レスポンス
-たとえば、`101-0045` を指定した場合、以下のようなレスポンスが返ってきます：
+たとえば、郵便番号 `1010045` を指定してコンテンツを保存した場合、以下のようなレスポンスが返ってきます：
 ```json
 {
   "postalCode": "1010045",
