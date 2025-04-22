@@ -12,7 +12,7 @@ microCMSの[拡張フィールド](https://document.microcms.io/manual/field-ext
 ## インストール方法
 
 ```bash
-npx create-next-app my-app --example https://github.com/microcmsio/microcms-field-extension-sdk/tree/main/examples/address-from-zipcode
+npx create-next-app my-app --example https://github.com/microcmsio/microcms-field-extension/tree/main/examples/address-from-zipcode
 cd my-app
 export NEXT_PUBLIC_MICROCMS_ORIGIN='https://xxxx.microcms.io'
 npm run dev
@@ -22,7 +22,7 @@ npm run dev
 ## 使用方法
 1. microCMS管理画面 → API設定 → APIスキーマ → フィールドの種類：拡張フィールドを追加
 2. 「拡張フィールド URL」に、以下いずれかのURLを入力します：
-- https://microcms-field-extension-nextjs.vercel.app/
+- https://microcms-field-extension-address-from-zipcode.vercel.app/
 - 自分でカスタマイズしたものをデプロイしたURL
 
 <img src="./docs/img_settings_microcms_field_extension.png" width="500" height="auto" alt="拡張フィールド設定画面" />
