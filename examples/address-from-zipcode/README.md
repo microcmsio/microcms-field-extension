@@ -1,13 +1,13 @@
 # address-from-zipcode
 ![デモ画面](docs/img_demo.gif)
 
-microCMSの[拡張フィールド](https://document.microcms.io/manual/field-extension)として使える、**郵便番号入力で住所を自動補完する拡張フィールド**です。
+microCMSの[拡張フィールド](https://document.microcms.io/manual/field-extension)として使用できる、**郵便番号入力で住所を自動補完する拡張フィールド**です。
 
 ## 特徴
 
 - 郵便番号を入力するだけで、都道府県・市区町村・町名以下を自動補完
 - microCMSの拡張フィールド機能として簡単に導入可能
-- OSSとして自由にカスタマイズ・拡張できます
+- OSSとして自由にカスタマイズ・拡張が可能
 
 ## インストール方法
 
@@ -17,7 +17,7 @@ cd my-app
 export NEXT_PUBLIC_MICROCMS_ORIGIN='https://xxxx.microcms.io'
 npm run dev
 ```
-※`'xxxx'`には、ご利用のサービスIDを設定してください。
+※`'xxxx'`には、ご利用中のサービスIDを設定してください。
 
 ## 使用方法
 1. microCMS管理画面 → API設定 → APIスキーマ → フィールドの種類：拡張フィールドを追加
@@ -27,7 +27,7 @@ npm run dev
 
 <img src="./docs/img_settings_microcms_field_extension.png" width="500" height="auto" alt="拡張フィールド設定画面" />
 
-## レスポンス
+## レスポンス例
 たとえば、郵便番号 `1010045` を指定してコンテンツを保存した場合、以下のようなレスポンスが返ってきます：
 ```json
 {
@@ -40,13 +40,13 @@ npm run dev
 ## 利用しているAPIについて
 
 本プロジェクトでは、[株式会社アイビス](https://ibsnet.co.jp/) 様が提供されている「[郵便番号検索API](https://zipcloud.ibsnet.co.jp/doc/api)」を利用しています。  
-本APIを使用することで、郵便番号を入力すると住所情報（都道府県・市区町村・町名以下）を自動補完できます。
+このAPIを使用することで、郵便番号を入力すると住所情報（都道府県・市区町村・町名以下）を自動補完できます。
 
 ### ご利用にあたっての注意事項
 
-- 本拡張フィールドは、[郵便番号検索API 利用規約](https://zipcloud.ibsnet.co.jp/rule/api) に同意いただいたうえでご利用ください。
-- 可用性や大量アクセスが必要な場合は、株式会社アイビス様が提供する[郵便番号データ（加工済み）](https://zipcloud.ibsnet.co.jp/)を利用した組み込みをご検討ください。
-- 本OSS利用による不具合や損害について、一切の責任を負いかねます。あらかじめご了承ください。
+- 本拡張フィールドは、[郵便番号検索API 利用規約](https://zipcloud.ibsnet.co.jp/rule/api) に同意のうえでご利用ください。
+- 可用性や大量アクセスが求められる場合は、株式会社アイビス様が提供する[郵便番号データ（加工済み）](https://zipcloud.ibsnet.co.jp/)を利用した組み込みをご検討ください。
+- 本OSSの利用により発生した不具合や損害について、一切の責任を負いかねます。あらかじめご了承ください。
 
 ## ライセンス
 このプロジェクトは MIT License のもとで公開されています。
