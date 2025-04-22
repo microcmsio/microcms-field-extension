@@ -1,0 +1,108 @@
+/* ====================
+   Global Reset & Base
+==================== */
+body {
+  font-family: var(--font-family-base);
+  margin: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====================
+   Design Tokens
+==================== */
+:root {
+  /* === Font === */
+  --font-family-base: -apple-system, BlinkMacSystemFont, Helvetica Neue, YuGothic, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, Arial, メイリオ, Meiryo, sans-serif;
+  --font-size-x-large: 24px;
+  --font-size-large: 20px;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-x-small: 12px;
+  --font-weight-normal: normal;
+  --font-weight-bold: bold;
+
+  /* === Border Radius === */
+  --border-radius-base: 4px;
+  --border-radius-large: 8px;
+  --border-radius-circle: 50%;
+
+  /* === Spacing === */
+  --spacing-large: 40px;
+  --spacing-medium: 24px;
+  --spacing-small: 16px;
+  --spacing-x-small: 8px;
+  --spacing-2x-small: 4px;
+  --spacing-2x-small-negative: -4px;
+  --spacing-x-small-negative: -8px;
+  --spacing-small-negative: -16px;
+  --spacing-medium-negative: -24px;
+  --spacing-large-negative: -40px;
+
+  /* === Color: Text === */
+  --color-text-main: #21213b;
+  --color-text-sub: #68688a;
+  --color-text-off: #9393b2;
+  --color-text-link: #7979b4;
+  --color-text-disabled: #b9b9b9;
+  --color-text-current: #563bff;
+  --color-text-gray: #ccc;
+  --color-text-white: #fff;
+  --color-text-error: #dc2647;
+  --color-text-success: #26dc44;
+  --color-text-caution: #fabc3a;
+
+  /* === Color: Border === */
+  --color-border-dark: #ccc;
+  --color-border: #ddd;
+  --color-border-main: #cdcde0;
+  --color-border-light: #e5e5f2;
+  --color-border-lightest: #f4f4fa;
+  --color-border-error: #fcaabb;
+  --color-border-success: #9bd85f;
+
+  /* === Color: Background === */
+  --color-bg-white: #fff;
+  --color-bg-black: #21213b;
+  --color-bg-gray-light: #eee;
+  --color-bg-gray: #ccc;
+  --color-bg-yellow: #ffc427;
+  --color-bg-purple-light: #f8f9fd;
+  --color-bg-purple: #ccccd9;
+  --color-bg-purple-dark: #cacae7;
+  --color-bg-blue-light: #e5eff9;
+  --color-bg-error: #fbeaed;
+  --color-bg-success: #f4fdf6;
+  --color-bg-caution: #faf6da;
+  --color-bg-info: #ecf8fb;
+  --color-bg-current: #e9e7fd;
+  --color-bg-disabled: #f7f7f7;
+
+  /* === Color: Accent / Primary === */
+  --color-accent: #ff8d27;
+  --color-accent-orange: #fc783f;
+  --color-accent-blue: #02c1f7;
+  --color-accent-purple: #563bff;
+  --color-accent-yellow: #ffc83b;
+  --color-accent-green: #26dc44;
+  --color-accent-red: #dc2647;
+  --color-primary: #331cbf;
+  --color-primary-light: #4932d5;
+  --color-primary-lighter: #5942e5;
+  --color-primary-dark: #29169e;
+  --color-primary-darker: #19068e;
+  --color-current: #ff357f;
+
+  /* === Color: Link / Effect === */
+  --color-link: #3067af;
+  --color-link-light: #6097df;
+  --color-effect-blue: #f2fcff;
+
+  /* === Breakpoints === */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
