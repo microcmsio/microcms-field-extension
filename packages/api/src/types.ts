@@ -39,6 +39,20 @@ export type User = {
   email: string;
 };
 
+const MessageContextTypeValue = {
+  NEW_CONTENT: "new_content",
+  EDIT_CONTENT: "edit_content",
+} as const;
+
+
+type MessageContextBase<T extends typeof MessageContextTypeValue[keyof typeof MessageContextTypeValue]> = {
+  type: T;
+  endpoint: string;
+}
+type MessageContextTypeNewContent = MessageContextBase<typeof MessageContextTypeValue.NEW_CONTENT> & { content: { id: null } };
+type MessageContextTypeEditContent = MessageContextBase<typeof MessageContextTypeValue.EDIT_CONTENT> & { content: { id: string } };
+type MessageContext = MessageContextTypeNewContent | MessageContextTypeEditContent;
+
 /**
  * microCMS から iFrame に対して onmessage のイベントで渡されるメッセージです。
  */
@@ -55,6 +69,8 @@ export type GetDefaultDataMessage = {
     message?: Partial<Message<any>>;
 
     user: User;
+
+    context: MessageContext;
   };
 } & MessageEvent<unknown>;
 
