@@ -20,6 +20,7 @@ export const useFieldExtension: UseFieldExtension = <T>(initialState: T, option:
   const [id, setId] = useState<string>("");
   const [user, setUser] = useState<User>({ email: "" });
   const [data, setData] = useState<T>(initialState);
+  const [context, setContext] = useState<GetDefaultDataMessage['data']['context'] | undefined>();
 
   useEffect(() => {
     const detach = setupFieldExtension({
@@ -30,6 +31,7 @@ export const useFieldExtension: UseFieldExtension = <T>(initialState: T, option:
           setData(data.data.message.data);
         }
         setUser(data.data.user);
+        setContext(data.data.context);
         if (option?.onDefaultData) {
           option.onDefaultData(data);
         }
@@ -46,5 +48,5 @@ export const useFieldExtension: UseFieldExtension = <T>(initialState: T, option:
     [id]
   );
 
-  return { data, sendMessage, user };
+  return { data, sendMessage, user, context };
 };
