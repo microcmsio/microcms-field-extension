@@ -11,7 +11,8 @@
   "scripts": {
     "prebuild": "rm -rf dist/",
     "build": "tsc",
-    "dev": "tsc"
+    "dev": "tsc",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "tsconfig": "*",

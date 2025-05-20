@@ -17,19 +17,11 @@ This repository managed as monorepo by [`turborepo`](https://turborepo.org/docs/
 Install dependency.
 
 ```sh
-npm i
+npm ci
 ```
 
 Test and build.
 
 ```sh
 npm run format && npm run lint && npm run build
-```
-
-Release.
-
-```sh
-./publish.sh api patch
-./publish.sh react patch
-./publish.sh cra-template patch
 ```

@@ -1,10 +1,24 @@
 {
-  "pipeline": {
+  "$schema": "https://turborepo.org/schema.json",
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "build:packages": {
+      "dependsOn": ["^build"],
+      "inputs": ["packages/*"],
+      "outputs": ["dist/**", ".next/**"]
+    },
     "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "typecheck:packages": {
+      "dependsOn": ["^typecheck"],
+      "inputs": ["packages/*"],
       "outputs": []
     },
     "dev": {
