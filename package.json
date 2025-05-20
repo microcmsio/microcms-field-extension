@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:packages": "turbo run build:packages",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "typecheck:packages": "turbo run typecheck:packages",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
