@@ -83,7 +83,7 @@ jobs:
         id: new_app_version
         run: |
           PKG_VERSION=$(node -e "console.log(require('./packages/${{ inputs.package }}/package.json').version)")
-          echo "VERSION=${{ inputs.package }}@$PKG_VERSION" >> $GITHUB_OUTPUT
+          echo "VERSION=$PKG_VERSION" >> $GITHUB_OUTPUT
 
       - name: create new tag
         run: |
@@ -91,14 +91,14 @@ jobs:
           git commit -m "[${{ inputs.package }}] Version v${{ steps.new_app_version.outputs.VERSION }}"
           git tag -a "${{ inputs.package }}-v${{ steps.new_app_version.outputs.VERSION }}" -m "[${{ inputs.package }}] Version v${{ steps.new_app_version.outputs.VERSION }}"
 
-      - name: publish
-        run: npm publish --provenance -w packages/${{ inputs.package }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: push
         run: |
           git push origin "${{ inputs.package }}-v${{ steps.new_app_version.outputs.VERSION }}"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: publish
+        run: npm publish --provenance -w packages/${{ inputs.package }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
