@@ -49,9 +49,9 @@ type MessageContextBase<T extends typeof MessageContextTypeValue[keyof typeof Me
   type: T;
   endpoint: string;
 }
-type MessageContextTypeNewContent = MessageContextBase<typeof MessageContextTypeValue.NEW_CONTENT> & { content: { id: null } };
-type MessageContextTypeEditContent = MessageContextBase<typeof MessageContextTypeValue.EDIT_CONTENT> & { content: { id: string } };
-type MessageContext = MessageContextTypeNewContent | MessageContextTypeEditContent;
+export type MessageContextTypeNewContent = MessageContextBase<typeof MessageContextTypeValue.NEW_CONTENT> & { content: { id: null } };
+export type MessageContextTypeEditContent = MessageContextBase<typeof MessageContextTypeValue.EDIT_CONTENT> & { content: { id: string } };
+export type MessageContext = MessageContextTypeNewContent | MessageContextTypeEditContent;
 
 /**
  * microCMS から iFrame に対して onmessage のイベントで渡されるメッセージです。
