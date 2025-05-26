@@ -7,6 +7,18 @@
   "files": [
     "dist/**"
   ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microcmsio/microcms-field-extension.git",
+    "directory": "packages/api"
+  },
+  "bugs": {
+    "url": "https://github.com/microcmsio/microcms-field-extension/issues"
+  },
   "license": "MIT",
   "scripts": {
     "prebuild": "rm -rf dist/",

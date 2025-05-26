@@ -12,12 +12,16 @@
     "url": "https://github.com/microcmsio/microcms-field-extension-sdk.git",
     "directory": "packages/cra-template"
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "license": "MIT",
   "engines": {
     "node": ">=14"
   },
   "bugs": {
-    "url": "https://github.com/microcmsio/microcms-field-extension-sdk/issues"
+    "url": "https://github.com/microcmsio/microcms-field-extension/issues"
   },
   "files": [
     "template",
