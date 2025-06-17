@@ -6,16 +6,6 @@ import "./MonacoHTMLEditor.css";
 
 const origin = import.meta.env.VITE_REACT_APP_MICROCMS_ORIGIN;
 
-interface MicroCMSMessage {
-  id?: string;
-  action: string;
-  message?: {
-    data?: {
-      code?: string;
-    };
-  };
-}
-
 const minEditorHeight = 10;
 const maxEditorHeight = 30;
 
@@ -90,11 +80,11 @@ export function MonacoHTMLEditor() {
   );
 
   useEffect(() => {
-    const messageHandler = (e: MessageEvent<MicroCMSMessage>) => {
+    const messageHandler = (e: MessageEvent) => {
       // 初期値の設定
       if (e.isTrusted && e.data.action === "MICROCMS_GET_DEFAULT_DATA") {
         windowIdRef.current = String(e.data.id ?? "");
-        const data = e.data?.message?.data?.code ?? "";
+        const data = String(e.data?.message?.data?.code ?? "");
 
         if (editorRef.current !== null) {
           editorRef.current.setValue(data);
