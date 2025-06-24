@@ -2,11 +2,11 @@
 
 ![デモ画面](docs/img_demo.gif)
 
-microCMSの[拡張フィールド](https://document.microcms.io/manual/field-extension)として使用できる、**HTMLエディタ拡張フィールド**です。
+microCMSの[拡張フィールド](https://document.microcms.io/manual/field-extension)として使用できる、**HTMLエディタフィールド**です。
 
 ## 特徴
 
-- 簡易的な補完やインデント、ハイライト機能が着いたHTMLエディタ
+- 簡易的な補完やインデント、ハイライト機能が付いたHTMLエディタ
 - microCMSの拡張フィールド機能として簡単に導入可能
 - OSSとして自由にカスタマイズ・拡張が可能
 
@@ -25,13 +25,13 @@ npm run dev
 ## 使用方法
 
 1. microCMS管理画面 → API設定 → APIスキーマ → フィールドの種類：拡張フィールドを追加
-2. 「拡張フィールド URL」に、自分でデプロイしたURLを入力します：
+2. 「拡張フィールド URL」に、デプロイしたURLを入力
 
 <img src="./docs/img_settings_microcms_field_extension.png" width="500" height="auto" alt="拡張フィールド設定画面" />
 
 ## レスポンス例
 
-たとえば、`<p>サンプルテキスト</p>`と入力してコンテンツを保存した場合、以下のようなレスポンスが返ってきます：
+例えば、`<p>サンプルテキスト</p>`と入力してコンテンツを保存した場合、以下のようなレスポンスが返ってきます。
 
 ```json
 {
