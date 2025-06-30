@@ -14,6 +14,12 @@ type Address = {
 
 const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://xxxx.microcms.io";
 
+const TITLE = "住所";
+
+const formatAddressString = (data: Address) => {
+  return `${data.postalCode} ${data.prefecture}${data.city}${data.town}`;
+};
+
 export default function AddressFromZipcode() {
   const { data, sendMessage } = useFieldExtension<Address>("" as any, {
     origin: origin,
@@ -56,13 +62,17 @@ export default function AddressFromZipcode() {
         setCity(result.address2);
         setTown(result.address3);
 
+        const data = {
+          postalCode: normalizedPostalCode,
+          prefecture: result.address1,
+          city: result.address2,
+          town: result.address3,
+        };
+
         sendMessage({
-          data: {
-            postalCode: normalizedPostalCode,
-            prefecture: result.address1,
-            city: result.address2,
-            town: result.address3,
-          },
+          title: TITLE,
+          description: formatAddressString(data),
+          data,
         });
       } else {
         setError("該当する住所が見つかりませんでした。");
@@ -96,7 +106,11 @@ export default function AddressFromZipcode() {
         break;
     }
 
-    sendMessage({ data: newData });
+    sendMessage({
+      title: TITLE,
+      description: formatAddressString(newData),
+      data: newData,
+    });
   };
 
   return (
