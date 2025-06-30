@@ -14,6 +14,8 @@ type Address = {
 
 const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://xxxx.microcms.io";
 
+const TITLE = "住所";
+
 const formatAddressString = (data: Address) => {
   return `${data.postalCode} ${data.prefecture}${data.city}${data.town}`;
 };
@@ -68,6 +70,7 @@ export default function AddressFromZipcode() {
         };
 
         sendMessage({
+          title: TITLE,
           description: formatAddressString(data),
           data,
         });
@@ -104,6 +107,7 @@ export default function AddressFromZipcode() {
     }
 
     sendMessage({
+      title: TITLE,
       description: formatAddressString(newData),
       data: newData,
     });
