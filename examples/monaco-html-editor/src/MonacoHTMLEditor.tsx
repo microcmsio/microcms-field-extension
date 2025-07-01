@@ -3,6 +3,7 @@ import Editor from "@monaco-editor/react";
 import type { OnMount } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
 import "./MonacoHTMLEditor.css";
+import { useFieldExtension } from "microcms-field-extension-react";
 
 const origin = import.meta.env.VITE_REACT_APP_MICROCMS_ORIGIN;
 
@@ -13,6 +14,20 @@ export function MonacoHTMLEditor() {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const windowIdRef = useRef<string | null>(null);
   const [lineHeight, setLineHeight] = useState<number>(18);
+  const { data, sendMessage } = useFieldExtension<{ code: string }>(
+    { code: "" },
+    {
+      origin: origin,
+      onDefaultData: (e) => {
+        windowIdRef.current = String(e.data.id ?? "");
+        const editorElement = document.querySelector<HTMLDivElement>(".editor");
+        if (editorElement !== null) {
+          editorElement.classList.add("ready");
+        }
+        updateEditorStyle();
+      },
+    }
+  );
 
   const updateEditorStyle = useCallback(() => {
     if (editorRef.current === null) {
@@ -43,6 +58,10 @@ export function MonacoHTMLEditor() {
     );
   }, [lineHeight]);
 
+  useEffect(() => {
+    updateEditorStyle();
+  }, [data, updateEditorStyle]);
+
   const handleEditorDidMount: OnMount = useCallback((editor) => {
     editorRef.current = editor;
 
@@ -60,55 +79,20 @@ export function MonacoHTMLEditor() {
       if (value === undefined || editorRef.current === null) {
         return;
       }
-      updateEditorStyle();
 
-      window.parent.postMessage(
-        {
-          id: windowIdRef.current,
-          action: "MICROCMS_POST_DATA",
-          message: {
-            description: value.replaceAll(/\s/g, ""),
-            data: {
-              code: value,
-            },
-          },
-        },
-        origin
-      );
+      sendMessage({
+        description: value.replaceAll(/\s/g, ""),
+        data: { code: value },
+      });
     },
-    [updateEditorStyle]
+    [sendMessage]
   );
-
-  useEffect(() => {
-    const messageHandler = (e: MessageEvent) => {
-      // 初期値の設定
-      if (e.isTrusted && e.data.action === "MICROCMS_GET_DEFAULT_DATA") {
-        windowIdRef.current = String(e.data.id ?? "");
-        const data = String(e.data?.message?.data?.code ?? "");
-
-        if (editorRef.current !== null) {
-          editorRef.current.setValue(data);
-        }
-
-        updateEditorStyle();
-
-        const editorElement = document.querySelector<HTMLDivElement>(".editor");
-        if (editorElement !== null) {
-          editorElement.classList.add("ready");
-        }
-      }
-    };
-
-    window.addEventListener("message", messageHandler);
-    return () => {
-      window.removeEventListener("message", messageHandler);
-    };
-  }, [updateEditorStyle]);
 
   return (
     <Editor
       className="editor"
       defaultLanguage="html"
+      value={data.code}
       theme="vs-dark"
       options={{
         lineNumbers: "on",
