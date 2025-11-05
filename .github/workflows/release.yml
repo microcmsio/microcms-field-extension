@@ -11,7 +11,6 @@ on:
         options:
           - api
           - react
-          - cra-template
       new_version:
         description: "リリースのバージョニング (major: 破壊的変更, minor: 機能追加, patch: バグ修正)"
         required: true

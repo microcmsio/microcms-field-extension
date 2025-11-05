@@ -1,5 +1,8 @@
 # cra-template-microcms-field-extension-app
 
+> [!CAUTION]
+> This is deprecated and will not be maintained.
+
 ## Getting Started
 
 ```sh
