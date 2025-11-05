@@ -4,14 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: "リリースするパッケージ (api, react, cra-template)"
+        description: "リリースするパッケージ (api, react)"
         required: true
         default: api
         type: choice
         options:
           - api
           - react
-          - cra-template
       new_version:
         description: "リリースのバージョニング (major: 破壊的変更, minor: 機能追加, patch: バグ修正)"
         required: true

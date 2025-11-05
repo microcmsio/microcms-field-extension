@@ -8,7 +8,7 @@ This repository managed as monorepo by [`turborepo`](https://turborepo.org/docs/
 
 - [`microcms-field-extension-api`](./packages/api/): This library do not depend framework (eg React, Vue.js ...)
 - [`microcms-field-extension-react`](./packages/react/): This library is useful when using React
-- [`microcms-cra-template`](./packages/cra-template/): This directory is template for [`create-react-app`](https://create-react-app.dev/)
+- ~[`microcms-cra-template`](./packages/cra-template/): This directory is template for [`create-react-app`](https://create-react-app.dev/)~
 - [`examples/react`](./examples/react/): React example
 - [`examples/nextjs`](./examples/nextjs/): Next.js example
 
