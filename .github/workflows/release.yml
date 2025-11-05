@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: "リリースするパッケージ (api, react, cra-template)"
+        description: "リリースするパッケージ (api, react)"
         required: true
         default: api
         type: choice
