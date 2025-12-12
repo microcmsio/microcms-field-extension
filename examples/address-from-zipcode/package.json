@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "microcms-field-extension-react": "latest",
-    "next": "^15.3.6",
+    "next": "^15.3.8",
     "react": "^19.1.2",
     "react-dom": "^19.1.2"
   },
@@ -20,7 +20,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "eslint": "^9.23.0",
-    "eslint-config-next": "^15.3.6",
+    "eslint-config-next": "^15.3.8",
     "typescript": "^5.8.2"
   }
 }
