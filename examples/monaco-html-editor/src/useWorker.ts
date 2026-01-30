@@ -23,4 +23,10 @@ self.MonacoEnvironment = {
   },
 };
 
-monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true);
+const typescriptDefaults = (
+  monaco.languages as unknown as {
+    typescript?: { typescriptDefaults?: { setEagerModelSync?: (value: boolean) => void } };
+  }
+).typescript?.typescriptDefaults;
+
+typescriptDefaults?.setEagerModelSync?.(true);
