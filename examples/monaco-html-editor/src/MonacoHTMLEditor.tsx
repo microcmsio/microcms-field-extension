@@ -18,7 +18,7 @@ export function MonacoHTMLEditor() {
     { code: "" },
     {
       origin: origin,
-      onDefaultData: (e) => {
+      onDefaultData: (e: MessageEvent<{ id?: string | null }>) => {
         windowIdRef.current = String(e.data.id ?? "");
         const editorElement = document.querySelector<HTMLDivElement>(".editor");
         if (editorElement !== null) {
