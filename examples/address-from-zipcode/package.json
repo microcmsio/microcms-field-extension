@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "microcms-field-extension-react": "latest",
-    "next": "^15.3.9",
+    "next": "^16.1.5",
     "react": "^19.1.5",
     "react-dom": "^19.1.5"
   },
