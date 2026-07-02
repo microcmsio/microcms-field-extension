@@ -15,8 +15,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "prettier": "latest",
-    "turbo": "latest"
+    "prettier": "3.5.3",
+    "turbo": "^2.10.0"
   },
   "engines": {
     "npm": ">=7.0.0",
