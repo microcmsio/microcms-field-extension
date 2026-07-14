@@ -1,26 +1,36 @@
 # microcms-field-extension-sdk
 
-This repository contains libraries for create [field extension](https://document.microcms.io/manual/field-extension).
+[拡張フィールド](https://document.microcms.io/manual/field-extension)で利用するアプリケーションの作成を支援するSDKです。
 
-This repository managed as monorepo by [`turborepo`](https://turborepo.org/docs/getting-started).
+## 保守方針
 
-## Directory structure
+このSDKの現在の保守レベルは`Active`です。
 
-- [`microcms-field-extension-api`](./packages/api/): This library do not depend framework (eg React, Vue.js ...)
-- [`microcms-field-extension-react`](./packages/react/): This library is useful when using React
-- ~[`microcms-cra-template`](./packages/cra-template/): This directory is template for [`create-react-app`](https://create-react-app.dev/)~
-- [`examples/react`](./examples/react/): React example
-- [`examples/nextjs`](./examples/nextjs/): Next.js example
+詳細は[SDKの保守方針](https://github.com/microcmsio/microcms-js-sdk#%E4%BF%9D%E5%AE%88%E6%96%B9%E9%87%9D)をご覧ください。
 
-## Development
+## ディレクトリ構成
 
-Install dependency.
+このリポジトリは、[`Turborepo`](https://turborepo.org/docs/getting-started)を使用したモノレポとして管理されています。
+
+### ライブラリ
+
+- [`microcms-field-extension-api`](./packages/api/): フレームワーク（React、Vue.jsなど）に依存しないライブラリ（[npm](https://www.npmjs.com/package/microcms-field-extension-api)）
+- [`microcms-field-extension-react`](./packages/react/): Reactで利用するためのライブラリ（[npm](https://www.npmjs.com/package/microcms-field-extension-react)）
+
+### サンプル
+
+- [`examples/react`](./examples/react/): Reactのサンプル
+- [`examples/nextjs`](./examples/nextjs/): Next.jsのサンプル
+
+## 開発
+
+依存パッケージをインストールします。
 
 ```sh
 npm ci
 ```
 
-Test and build.
+テストとビルドを実行します。
 
 ```sh
 npm run format && npm run lint && npm run build
