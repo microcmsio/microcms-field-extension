@@ -3,9 +3,10 @@
 ## Getting Started
 
 ```sh
-npm install
-export REACT_APP_MICROCMS_ORIGIN='https://example.microcms.io'
-npm start
+npm ci
+
+echo VITE_MICROCMS_ORIGIN='https://example.microcms.io' > .env.local
+npm run dev
 ```
 
 ## About the Node.js version
