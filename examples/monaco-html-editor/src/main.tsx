@@ -6,5 +6,5 @@ import "./useWorker.ts";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <MonacoHTMLEditor />
-  </StrictMode>
+  </StrictMode>,
 );

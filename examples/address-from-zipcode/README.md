@@ -1,4 +1,5 @@
 # address-from-zipcode
+
 ![デモ画面](docs/img_demo.gif)
 
 microCMSの[拡張フィールド](https://document.microcms.io/manual/field-extension)として使用できる、**郵便番号入力で住所を自動補完する拡張フィールド**です。
@@ -17,18 +18,23 @@ cd my-app
 export NEXT_PUBLIC_MICROCMS_ORIGIN='https://xxxx.microcms.io'
 npm run dev
 ```
+
 ※`'xxxx'`には、ご利用中のサービスIDを設定してください。
 
 ## 使用方法
+
 1. microCMS管理画面 → API設定 → APIスキーマ → フィールドの種類：拡張フィールドを追加
 2. 「拡張フィールド URL」に、以下いずれかのURLを入力します：
+
 - https://microcms-field-extension-address-from-zipcode.vercel.app/
 - 自分でカスタマイズしたものをデプロイしたURL
 
 <img src="./docs/img_settings_microcms_field_extension.png" width="500" height="auto" alt="拡張フィールド設定画面" />
 
 ## レスポンス例
+
 たとえば、郵便番号 `1010045` を指定してコンテンツを保存した場合、以下のようなレスポンスが返ってきます：
+
 ```json
 {
   "postalCode": "1010045",
@@ -37,6 +43,7 @@ npm run dev
   "town": "神田鍛冶町"
 }
 ```
+
 ## 利用しているAPIについて
 
 本プロジェクトでは、[株式会社アイビス](https://ibsnet.co.jp/) 様が提供されている「[郵便番号検索API](https://zipcloud.ibsnet.co.jp/doc/api)」を利用しています。  
@@ -60,4 +67,5 @@ Node.js では定期的にセキュリティアップデートが提供されて
 https://nodejs.org/ja/blog/vulnerability/
 
 ## ライセンス
+
 このプロジェクトは MIT License のもとで公開されています。

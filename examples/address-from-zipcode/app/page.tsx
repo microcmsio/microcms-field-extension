@@ -12,7 +12,8 @@ type Address = {
   town: string;
 };
 
-const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://xxxx.microcms.io";
+const origin =
+  process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://xxxx.microcms.io";
 
 const TITLE = "住所";
 
@@ -52,7 +53,9 @@ export default function AddressFromZipcode() {
     setError("");
 
     try {
-      const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${normalizedPostalCode}`);
+      const res = await fetch(
+        `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${normalizedPostalCode}`,
+      );
       const json = await res.json();
 
       if (json.results && json.results.length > 0) {

@@ -9,7 +9,10 @@ import {
   MessageContext,
 } from "microcms-field-extension-api";
 
-type UseFieldExtension = <T>(initialState: T, option: SetupOption) => UseFieldExtensionReturnValue<T>;
+type UseFieldExtension = <T>(
+  initialState: T,
+  option: SetupOption,
+) => UseFieldExtensionReturnValue<T>;
 
 type UseFieldExtensionReturnValue<T> = {
   data: T;
@@ -18,7 +21,10 @@ type UseFieldExtensionReturnValue<T> = {
   context: MessageContext | undefined;
 };
 
-export const useFieldExtension: UseFieldExtension = <T>(initialState: T, option: SetupOption) => {
+export const useFieldExtension: UseFieldExtension = <T>(
+  initialState: T,
+  option: SetupOption,
+) => {
   const [id, setId] = useState<string>("");
   const [user, setUser] = useState<User>({ email: "" });
   const [context, setContext] = useState<MessageContext | undefined>();
@@ -47,7 +53,7 @@ export const useFieldExtension: UseFieldExtension = <T>(initialState: T, option:
       setData(message.data);
       sendFieldExtensionMessage({ id, message }, option.origin);
     },
-    [id]
+    [id],
   );
 
   return { data, sendMessage, user, context };

@@ -5,14 +5,19 @@ import { useFieldExtension } from "microcms-field-extension-react";
 import type { GetServerSideProps, NextPage } from "next";
 
 // CHANGEME
-const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
+const origin =
+  process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
 type Props = {
   files: { url: string }[];
 };
 
-export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (context) => {
-  const files = await fetch("http://localhost:3000/api/files").then((res) => res.json());
+export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (
+  context,
+) => {
+  const files = await fetch("http://localhost:3000/api/files").then((res) =>
+    res.json(),
+  );
 
   return {
     props: { files },

@@ -10,7 +10,7 @@ const s3 = new AWS.S3();
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   const objects = await s3.listObjectsV2({ Bucket: bucket }).promise();
 
@@ -21,6 +21,6 @@ export default async function handler(
       .filter((c) => c.Key)
       .map((c) => ({
         url: `https://s3.ap-northeast-1.amazonaws.com/${bucket}/${c.Key}`,
-      }))
+      })),
   );
 }

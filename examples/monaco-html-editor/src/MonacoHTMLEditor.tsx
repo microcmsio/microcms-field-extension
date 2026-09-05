@@ -26,7 +26,7 @@ export function MonacoHTMLEditor() {
         }
         updateEditorStyle();
       },
-    }
+    },
   );
 
   const updateEditorStyle = useCallback(() => {
@@ -42,7 +42,7 @@ export function MonacoHTMLEditor() {
     const editorHeight =
       Math.min(
         Math.max(minEditorHeight, model.getLineCount()),
-        maxEditorHeight
+        maxEditorHeight,
       ) * lineHeight;
 
     window.parent.postMessage(
@@ -54,7 +54,7 @@ export function MonacoHTMLEditor() {
           width: "100%",
         },
       },
-      origin
+      origin,
     );
   }, [lineHeight]);
 
@@ -85,7 +85,7 @@ export function MonacoHTMLEditor() {
         data: { code: value },
       });
     },
-    [sendMessage]
+    [sendMessage],
   );
 
   return (

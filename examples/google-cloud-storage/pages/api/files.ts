@@ -8,8 +8,13 @@ type Data = {
 
 const storage = new Storage();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const [files] = await storage.bucket(process.env.BUCKET_NAME || "").getFiles();
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>,
+) {
+  const [files] = await storage
+    .bucket(process.env.BUCKET_NAME || "")
+    .getFiles();
   const response = files.map((file) => ({
     url: `https://storage.googleapis.com/${process.env.BUCKET_NAME}/${file.name}`,
   }));

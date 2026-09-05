@@ -15,7 +15,10 @@ npm install microcms-field-extension-api
 ## Usage
 
 ```js
-import { setupFieldExtension, sendFieldExtensionMessage } from "microcms-field-extension-api";
+import {
+  setupFieldExtension,
+  sendFieldExtensionMessage,
+} from "microcms-field-extension-api";
 
 /**
  * Setup iframe field.
@@ -100,6 +103,6 @@ sendFieldExtensionMessage(
   /**
    * Origin passed to `iframe.set`.
    */
-  "https://example.microcms.io"
+  "https://example.microcms.io",
 );
 ```

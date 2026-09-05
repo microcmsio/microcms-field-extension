@@ -10,10 +10,15 @@ type Props = {
   objects: File[];
 };
 
-const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
+const origin =
+  process.env.NEXT_PUBLIC_MICROCMS_ORIGIN || "https://example.microcms.io";
 
-export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (context) => {
-  const objects = await fetch("http://localhost:3000/api/files").then((res) => res.json());
+export const getServerSideProps: GetServerSideProps<Props, {}, {}> = async (
+  context,
+) => {
+  const objects = await fetch("http://localhost:3000/api/files").then((res) =>
+    res.json(),
+  );
 
   return {
     props: {

@@ -34,7 +34,9 @@ export const InputField = ({
           placeholder={placeholder}
           className={`${styles.input} ${styles[size]}`}
         />
-        {withButton && <Button onClick={withButton.onClick} label={withButton.label} />}
+        {withButton && (
+          <Button onClick={withButton.onClick} label={withButton.label} />
+        )}
       </div>
       {error && <p className={styles.error}>{error}</p>}
     </div>
