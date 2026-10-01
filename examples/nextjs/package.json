@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "16.3.4",
+    "microcms-field-extension-react": "latest",
+    "next": "16.3.8",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "microcms-field-extension-react": "latest"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@types/eslint": "8.4.2",
