@@ -9,24 +9,33 @@ import {
   UpdateStyleMessage,
 } from "./types";
 
-export function isGetDefaultDataMessage(e: MessageEvent<any>): e is GetDefaultDataMessage {
+export function isGetDefaultDataMessage(
+  e: MessageEvent<any>,
+): e is GetDefaultDataMessage {
   return e.data?.action === "MICROCMS_GET_DEFAULT_DATA";
 }
 
-export function isPostDataSuccessMessage(e: MessageEvent<any>): e is PostDataResponseSuccessMessage {
+export function isPostDataSuccessMessage(
+  e: MessageEvent<any>,
+): e is PostDataResponseSuccessMessage {
   return e.data?.action === "MICROCMS_POST_DATA_SUCCESS";
 }
 
-export function isPostDataErrorMessage(e: MessageEvent<any>): e is PostDataErrorResponseMessage {
+export function isPostDataErrorMessage(
+  e: MessageEvent<any>,
+): e is PostDataErrorResponseMessage {
   return e.data?.action === "MICROCMS_POST_DATA_FAILURE";
 }
 
 export const defaultSetupOption = {
   width: "100%",
   height: 400,
-  onDefaultData: (message: GetDefaultDataMessage) => console.log(`microCMS iframe on default data`, message),
-  onPostSuccess: (message: PostDataResponseSuccessMessage) => console.log(`microCMS iframe on post success`, message),
-  onPostError: (message: PostDataErrorResponseMessage) => console.error(`microCMS iframe on post error`, message),
+  onDefaultData: (message: GetDefaultDataMessage) =>
+    console.log(`microCMS iframe on default data`, message),
+  onPostSuccess: (message: PostDataResponseSuccessMessage) =>
+    console.log(`microCMS iframe on post success`, message),
+  onPostError: (message: PostDataErrorResponseMessage) =>
+    console.error(`microCMS iframe on post error`, message),
 };
 
 export function setupFieldExtension(option: SetupOption): CleanupFunction {
@@ -65,7 +74,10 @@ export function setupFieldExtension(option: SetupOption): CleanupFunction {
   return () => window.removeEventListener("message", listener);
 }
 
-export function sendFieldExtensionMessage<T>(message: SendMessage<T>, origin: string) {
+export function sendFieldExtensionMessage<T>(
+  message: SendMessage<T>,
+  origin: string,
+) {
   const msg: PostDataMessage<T> = Object.assign({}, message, {
     action: "MICROCMS_POST_DATA" as const,
   });

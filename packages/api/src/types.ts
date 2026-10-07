@@ -58,8 +58,7 @@ export type MessageContextTypeEditContent = MessageContextBase<
   typeof MessageContextTypeValue.EDIT_CONTENT
 > & { content: { id: string } };
 export type MessageContext =
-  | MessageContextTypeNewContent
-  | MessageContextTypeEditContent;
+  MessageContextTypeNewContent | MessageContextTypeEditContent;
 
 /**
  * microCMS から iFrame に対して onmessage のイベントで渡されるメッセージです。
