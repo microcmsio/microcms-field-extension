@@ -56,6 +56,9 @@ jobs:
           package-manager-cache: false
           registry-url: "https://registry.npmjs.org"
 
+      - name: Setup npm 12
+        run: npm install -g npm@12.2.1 --engine-strict=false
+
       # Git push するために設定する
       - name: setup git config
         # 参考資料:
